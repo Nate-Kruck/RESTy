@@ -1,8 +1,7 @@
 import React from 'react';
 import {
   render,
-  cleanup,
-  screen
+  cleanup
 } from '@testing-library/react';
 import Repo from '../Repo/Repo';
 
@@ -10,15 +9,13 @@ describe('Repo Testing', () => {
   afterEach(() => cleanup());
 
   it('renders a Repo', () => {
-    const repo = {
-      url: 'www.google.com',
-      name: 'restyAPI',
-      login: 'Nate-Kruck'
-    };
-    
-    const { asFragment } = render(<Repo repo={repo} />);
-
-    screen.getByText('restyAPI');
+    const { asFragment } = render(<Repo
+      url="blank"
+      method="GET"
+      body="blank"
+      onChange={() => {}}
+      onSubmit={() => {}}
+    />);
 
     expect(asFragment()).toMatchSnapshot();
   });

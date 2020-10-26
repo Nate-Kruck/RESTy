@@ -1,34 +1,79 @@
 import React, { Component } from 'react';
-import { getGitHubApi } from '../Api-fetch/github';
+import { fetchUrl } from '../Api-fetch/fetchUrl';
+import Repo from '../Components/Repo/Repo';
 import Search from '../Components/Search/Search';
+import clearHistory from '../Api-fetch/clearHistory';
+import History from '../Components/History/History';
 
 export default class RepoPage extends Component {
 
   state = {
-    repos: [],
-    endpoints: ''
+    url: '',
+    method: 'GET',
+    body: '',
+    response: {},
+    history: [],
   }
 
-  handleSearch = () => {
-    getGitHubApi(this.state.endpoints)
-      .then(repos => this.setState({ repos }));
+  handleSubmit = async(event) => {
+    event.preventDefault();
+      
+    const data = await fetchUrl(this.state.url, this.state.method);
+    const response = await data.json();
+
+    this.setState (state => ({
+      response,
+      history: [
+        ...this.state.history,
+        { url: state.ur, method: state.method }
+      ],
+      url: '',
+    }));
+
+    this.setState({ history: clearHistory(this.state.history) });
+  }
+
+  handleClick = async(url, method) => {
+    const json = await fetchUrl(url, method);
+    const response = await json.json();
+
+    this.setState({ response, url: '' });
   }
 
   handleChange = ({ target }) => {
-    this.setState({ endpoints: target.value });
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
-    const { repos, endpoints } = this.state;
+    const {
+      url,
+      method,
+      body,
+      response,
+      history
+    } = this.state;
 
     return (
-      <div>
-        <Search
-          onChange={this.handleChange}
-          endpoints={endpoints}
-        />
-        <button onClick={this.handleSearch}>Get Repos</button>
-      </div>
+      <>
+        <div>
+          <div>
+            <Repo
+              url={url}
+              method={method}
+              body={body}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+            />
+            <History
+              history={history}
+              onClick={this.handleClick}
+            />
+            <Search
+              response={response}
+            />
+          </div>
+        </div>
+      </>
     );
   }
 }

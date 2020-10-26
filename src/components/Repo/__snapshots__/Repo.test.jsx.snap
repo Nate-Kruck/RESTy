@@ -3,22 +3,63 @@
 exports[`Repo Testing renders a Repo 1`] = `
 <DocumentFragment>
   <div>
-    <li>
-      <a
-        href="www.google.com"
-        rel="noreferrer"
-        target="_blank"
+    <form>
+      <label
+        for="url"
       >
-        <h1
-          data-testid="repo"
+        URL
+        <input
+          name="url"
+          type="text"
+          value="blank"
+        />
+      </label>
+      <label
+        for="method"
+      >
+        HTTP Request method
+        <select
+          name="method"
         >
-          restyAPI
-        </h1>
-      </a>
-    </li>
-    <p>
-      Nate-Kruck
-    </p>
+          <option
+            value="GET"
+          >
+            GET
+          </option>
+          <option
+            value="POST"
+          >
+            POST
+          </option>
+          <option
+            value="PUT"
+          >
+            PUT
+          </option>
+          <option
+            value="PATCH"
+          >
+            PATCH
+          </option>
+          <option
+            value="DELETE"
+          >
+            DELETE
+          </option>
+        </select>
+      </label>
+      <p>
+        JSON data
+      </p>
+      <textarea
+        name="body"
+      >
+        blank
+      </textarea>
+      <button>
+        Submit
+      </button>
+    </form>
   </div>
 </DocumentFragment>
 `;

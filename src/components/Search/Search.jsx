@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactJson from 'react-json-view';
 
-function Search({ endpoints, onChange }) {
+function Search({ response }) {
   return (
-    <div>
+    <div data-testid="display">
       <label htmlFor="search">Search</label>
-      <input
-        id="search"
-        type="search"
-        name="search"
-        value={endpoints}
-        onChange={onChange}
+      <ReactJson
+        src={response}
+        displayDataTypes={false}
+        displayObjectSize={false}
+        theme={'brewer'}
       />
     </div>
   );
 }
 
 Search.propTypes = {
-  endpoints: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  response: PropTypes.object
 };
 
 export default Search;

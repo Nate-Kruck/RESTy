@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`History Testing should render request from history 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <p>
+        GET
+      </p>
+      <p>
+        www.friend.com
+      </p>
+    </li>
+    <li>
+      <p>
+        POST
+      </p>
+      <p>
+        www.friend.com
+      </p>
+    </li>
+    <li>
+      <p>
+        DELETE
+      </p>
+      <p>
+        www.friend.com
+      </p>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
