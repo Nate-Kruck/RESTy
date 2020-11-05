@@ -5,13 +5,11 @@ import ReactJson from 'react-json-view';
 function Search({ response }) {
   return (
     <div data-testid="display">
-      <label htmlFor="search">Search</label>
       <ReactJson
         src={response}
         displayDataTypes={false}
         displayObjectSize={false}
-        theme={'brewer'}
-      />
+        theme={'brewer'} />
     </div>
   );
 }
