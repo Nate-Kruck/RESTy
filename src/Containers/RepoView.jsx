@@ -24,8 +24,8 @@ export default class RepoPage extends Component {
     this.setState (state => ({
       response,
       history: [
-        ...this.state.history,
-        { url: state.ur, method: state.method }
+        ...state.history,
+        { url: state.url, method: state.method }
       ],
       url: '',
     }));
