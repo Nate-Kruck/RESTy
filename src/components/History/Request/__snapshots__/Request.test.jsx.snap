@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request Testing Makes a request onClick 1`] = `
+<DocumentFragment>
+  <li>
+    <p>
+      method
+    </p>
+    <p>
+      url
+    </p>
+  </li>
+</DocumentFragment>
+`;

@@ -23,7 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -53,6 +54,7 @@
     "postcss-nested": "^5.0.1",
     "postcss-simple-vars": "^6.0.1",
     "prop-types": "^15.7.2",
+    "react-json-view": "latest",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.2.0",
